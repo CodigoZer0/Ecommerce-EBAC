@@ -98,25 +98,23 @@ body{
             }
         }
         &__cart{
-            @include flexbox(column, center);
             width: 500px;
             background-color: #fff;
             box-sizing: border-box;
             height: 100%;
             position: fixed;
-            left: -50%;
+            left: 0%;
             top: 90px;
             box-shadow: -19px -1px 22px -15px rgba(0, 0, 0, 0.3);
-            
+            display: flex;
+            flex-direction: column;
 
             .main__cart-top{
                 position: relative;
                 padding: 20px;
                 background-color: $colorGrey;
                 color: $colorwhite;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+                
 
                 .close-cart{
                     width: 30px;
