@@ -7,11 +7,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="scss/styles.css">
+    <script src="js/functions.js" defer></script>
     <title>Tienda Zelda</title>
 </head>
 <body>
     <header class="header">
-        <i><img src="img/shopping-cart.png" alt="Icono Carrito" class="header__icon cart"></i>
+        <section class="header__cart">
+            <i><img src="img/shopping-cart.png" alt="Icono Carrito" class="header__icon cart"></i>
+            <p class="header__cart-count">0</p>
+        </section>
         <img src="img/Zelda_Logo.png" alt="Logo TLOZ" class="header__logo">
         <i><img src="img/home.png" alt="Icono Menu" class="header__icon menu"></i>
     </header>
@@ -24,57 +28,57 @@
 
         <section class="main__products">
             <article>
-                <img src="img/echoes.jpg" alt="Echoes of Wisdom">
-                <h3>The Legend of Zelda Echos of Wisdom</h3>
-                <p>$1,199.00</p>
+                <img src="img/echoes.jpg" alt="Echoes of Wisdom" class="product-image">
+                <h3 class="product-name">The Legend of Zelda Echos of Wisdom</h3>
+                <p class="product-price">$1,199.00</p>
                 <button class="add-to-cart">Añadir al carrito</button>
             </article>
             <article>
-                <img src="img/tears.jpg" alt="Tears of the kingdom">
-                <h3>The Legend of Tears of the Kingdom</h3>
-                <p>$1,399.00</p>
+                <img src="img/tears.jpg" alt="Tears of the kingdom" class="product-image">
+                <h3 class="product-name">The Legend of Tears of the Kingdom</h3>
+                <p class="product-price">$1,399.00</p>
                 <button class="add-to-cart">Añadir al carrito</button>
             </article>
             <article>
-                <img src="img/awakening.jpg" alt="Links awakening">
-                <h3>The Legends of Zelda Link's Awakening</h3>
-                <p>$1,199.00</p>
+                <img src="img/awakening.jpg" alt="Links awakening" class="product-image">
+                <h3 class="product-name">The Legends of Zelda Link's Awakening</h3>
+                <p class="product-price">$1,199.00</p>
                 <button class="add-to-cart">Añadir al carrito</button>
             </article>
             <article>
-                <img src="img/echoes.jpg" alt="Echoes of Wisdom">
-                <h3>The Legend of Zelda Echos of Wisdom</h3>
-                <p>$1,199.00</p>
+                <img src="img/echoes.jpg" alt="Echoes of Wisdom" class="product-image">
+                <h3 class="product-name">The Legend of Zelda Echos of Wisdom</h3>
+                <p class="product-price">$1,199.00</p>
                 <button class="add-to-cart">Añadir al carrito</button>
             </article>
             <article>
-                <img src="img/tears.jpg" alt="Tears of the kingdom">
-                <h3>The Legend of Tears of the Kingdom</h3>
-                <p>$1,399.00</p>
+                <img src="img/tears.jpg" alt="Tears of the kingdom" class="product-image">
+                <h3 class="product-name">The Legend of Tears of the Kingdom</h3>
+                <p class="product-price">$1,399.00</p>
                 <button class="add-to-cart">Añadir al carrito</button>
             </article>
             <article>
-                <img src="img/awakening.jpg" alt="Links awakening">
-                <h3>The Legends of Zelda Link's Awakening</h3>
-                <p>$1,199.00</p>
+                <img src="img/awakening.jpg" alt="Links awakening" class="product-image">
+                <h3 class="product-name">The Legends of Zelda Link's Awakening</h3>
+                <p class="product-price">$1,199.00</p>
                 <button class="add-to-cart">Añadir al carrito</button>
             </article>
             <article>
-                <img src="img/echoes.jpg" alt="Echoes of Wisdom">
-                <h3>The Legend of Zelda Echos of Wisdom</h3>
-                <p>$1,199.00</p>
+                <img src="img/echoes.jpg" alt="Echoes of Wisdom" class="product-image">
+                <h3 class="product-name">The Legend of Zelda Echos of Wisdom</h3>
+                <p class="product-price">$1,199.00</p>
                 <button class="add-to-cart">Añadir al carrito</button>
             </article>
             <article>
-                <img src="img/tears.jpg" alt="Tears of the kingdom">
-                <h3>The Legend of Tears of the Kingdom</h3>
-                <p>$1,399.00</p>
+                <img src="img/tears.jpg" alt="Tears of the kingdom" class="product-image">
+                <h3 class="product-name">The Legend of Tears of the Kingdom</h3>
+                <p class="product-price">$1,399.00</p>
                 <button class="add-to-cart">Añadir al carrito</button>
             </article>
             <article>
-                <img src="img/awakening.jpg" alt="Links awakening">
-                <h3>The Legends of Zelda Link's Awakening</h3>
-                <p>$1,199.00</p>
+                <img src="img/awakening.jpg" alt="Links awakening" class="product-image">
+                <h3 class="product-name">The Legends of Zelda Link's Awakening</h3>
+                <p class="product-price">$1,199.00</p>
                 <button class="add-to-cart">Añadir al carrito</button>
             </article>
         </section>
@@ -84,13 +88,10 @@
                 <h2>CARRITO</h2>
                 <img src="img/cerrar.png" alt="boton cerrar" class="close-cart">
             </div>
-            <div class="main__cart-item">
-                <img src="img/tears.jpg" alt="">
-                <p>The legend of Zelda Tears Of the Kingdom</p>
-                <p>$1,399.00</p>
-                <i><img src="img/recycle.png" alt="Icono Quitar" class="erase"></i>
-            </div>
+            <p class="main__cart-empty">¡El carrito está vacío añade más productos!</p>
+            
         </section>
     </main>
+    
 </body>
 </html>

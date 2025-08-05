@@ -1,4 +1,5 @@
 $colorGrey: #333;
+$colorwhite: #fff;
 $fontFamily: "Lexend", Arial, Helvetica, sans-serif;
 
 @mixin flexbox($justify, $align){
@@ -18,10 +19,28 @@ body{
 
     .header{
         width: 100%;
-        padding: 20px 30px;
+        padding: 20px 20px;
         background-color: $colorGrey;
         box-sizing: border-box;
         @include flexbox(space-between, center);
+        &__cart{
+            position: relative;
+            @include flexbox(center, center);
+            color: $colorwhite;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+
+            &-count{
+                position: absolute;
+                top: -15px;
+                right: -10px;
+                background-color: red;
+                color: $colorwhite;
+                border-radius: 50%;
+                padding: 5px 8px;
+            }
+        }
         &__icon{
             display: inline-block;
             width: 50px;
@@ -72,7 +91,8 @@ body{
             }
             img{
                 width: 200px;
-                margin-bottom: 15px;
+                margin: 10px 0;
+                
             }
             h2{
                 font-weight: 500;
@@ -93,21 +113,19 @@ body{
                 font-size: 14px;
 
                 &:hover{
-                    background-color: darken($colorGrey, 10%);
+                    background-color:#5c5c5c;
                 }
             }
         }
         &__cart{
-            width: 500px;
+            width: 30%;
             background-color: #fff;
             box-sizing: border-box;
             height: 100%;
             position: fixed;
-            left: 0%;
+            left: -50%;
             top: 90px;
-            box-shadow: -19px -1px 22px -15px rgba(0, 0, 0, 0.3);
-            display: flex;
-            flex-direction: column;
+            box-shadow: 30px -1px 22px -15px rgba(0, 0, 0, 0.3);
 
             .main__cart-top{
                 position: relative;
@@ -132,7 +150,12 @@ body{
                     box-sizing: border-box;
                 }
             }
-            
+            &-empty{
+                padding: 20px;
+                text-align: center;
+                font-size: 16px;
+                color: #999;
+            }
             &-item{
                 border-bottom: 1px solid #333;
                 display: flex;
@@ -146,9 +169,11 @@ body{
                 width: 60px;
             }
             .erase{
-                width: 100%;
                 cursor: pointer;
-                width: 30px;
+                img{
+                    width: 30px;
+                }
+                
             }
             &.show{
                 left: 0;
@@ -188,7 +213,7 @@ body{
         }
     }
 }
-@media (max-width: 480px){
+@media (max-width: 590px){
     .main{
         &__banner{
             padding: 30px;
@@ -213,19 +238,19 @@ body{
             }
         }
         &__cart{
-            width: 100%;
+            width: 100% !important;
             box-shadow: none;
 
             h2{
                 padding: 15px 0;
             }
-            &item{
-                flex-direction: column;
-                align-items: center;
-            }
+            
             img{
-                width: 100px;
+                width: 50px;
                 
+            }
+            .erase{
+                width: 20px;
             }
         }
     }
