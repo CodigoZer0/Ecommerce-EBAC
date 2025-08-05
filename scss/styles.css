@@ -1,0 +1,231 @@
+body {
+  width: 100%;
+  font-size: 15px;
+  font-weight: 300;
+  color: #2e2e2e;
+  font-family: "Lexend", Arial, Helvetica, sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+}
+body .header {
+  width: 100%;
+  padding: 20px 20px;
+  background-color: #333;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+body .header__cart {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+}
+body .header__cart-count {
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  background-color: red;
+  color: #fff;
+  border-radius: 50%;
+  padding: 5px 8px;
+}
+body .header__icon {
+  display: inline-block;
+  width: 50px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+body .header__logo {
+  display: inline-block;
+  width: 100px;
+  vertical-align: middle;
+}
+body .main__banner {
+  width: 100%;
+  padding: 40px 0;
+  text-align: center;
+  background-image: url(../img/banner.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 20%;
+  box-sizing: border-box;
+}
+body .main__banner h2 {
+  width: 100%;
+  font-weight: 600;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+body .main__banner p {
+  width: 350px;
+  margin: 0 auto;
+  font-size: 25px;
+  opacity: 0.7;
+}
+body .main__products {
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+body .main__products article {
+  cursor: pointer;
+  text-align: center;
+}
+body .main__products img {
+  width: 200px;
+  margin: 10px 0;
+}
+body .main__products h2 {
+  font-weight: 500;
+  font-size: 17px;
+  margin-bottom: 5px;
+}
+body .main__products p {
+  font-weight: 300;
+  font-size: 15px;
+}
+body .main__products .add-to-cart {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: "Lexend", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+body .main__products .add-to-cart:hover {
+  background-color: #5c5c5c;
+}
+body .main__cart {
+  width: 30%;
+  background-color: #fff;
+  box-sizing: border-box;
+  height: 100%;
+  position: fixed;
+  left: -50%;
+  top: 90px;
+  box-shadow: 30px -1px 22px -15px rgba(0, 0, 0, 0.3);
+}
+body .main__cart .main__cart-top {
+  position: relative;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
+body .main__cart .main__cart-top .close-cart {
+  width: 30px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+body .main__cart .main__cart-top h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+body .main__cart-empty {
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+  color: #999;
+}
+body .main__cart-item {
+  border-bottom: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+body .main__cart img {
+  width: 60px;
+}
+body .main__cart .erase {
+  cursor: pointer;
+}
+body .main__cart .erase img {
+  width: 30px;
+}
+body .main__cart.show {
+  left: 0;
+  transition: left 0.3s ease-in-out;
+}
+body .main__carthide {
+  left: -50%;
+  transition: left 0.3s ease-in-out;
+}
+
+/* Responsive Desing */
+@media (max-width: 820px) {
+  .header {
+    padding: 15px;
+  }
+  .header__logo {
+    width: 60px;
+  }
+  .header__icon {
+    width: 30px;
+  }
+  .main__products {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .main__products img {
+    width: 150px;
+  }
+  .main__cart {
+    width: 400px;
+    top: 80px;
+  }
+}
+@media (max-width: 590px) {
+  .main__banner {
+    padding: 30px;
+  }
+  .main__banner h2 {
+    font-size: 18px;
+  }
+  .main__banner p {
+    font-size: 16px;
+  }
+  .main__products {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+  .main__products img {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 10px;
+  }
+  .main__products h3, .main__products p {
+    padding: 0 10px;
+  }
+  .main__cart {
+    width: 100% !important;
+    box-shadow: none;
+  }
+  .main__cart h2 {
+    padding: 15px 0;
+  }
+  .main__cart img {
+    width: 50px;
+  }
+  .main__cart .erase {
+    width: 20px;
+  }
+}/*# sourceMappingURL=styles.css.map */
