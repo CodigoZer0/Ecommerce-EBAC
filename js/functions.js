@@ -2,6 +2,7 @@ const cartIcon = document.querySelector('.cart');
 const cart = document.querySelector('.main__cart');
 const closeCart = document.querySelector('.close-cart');
 
+
 closeCart.addEventListener('click', () => {
   cart.classList.add('hide');
   cart.classList.remove('show');
@@ -9,6 +10,18 @@ closeCart.addEventListener('click', () => {
 cartIcon.addEventListener('click', () => {
   cart.classList.add('show');
   cart.classList.remove('hide');
+});
+// Función para mostrar el menú al hacer clic en el icono del menú
+const menuIcon = document.querySelector('.menu');
+const navMenu = document.querySelector('.main__nav');
+const closeMenu = document.querySelector('.main__nav-close');
+menuIcon.addEventListener('click', () => {
+    navMenu.classList.add('show');
+    navMenu.classList.remove('hide');
+});
+closeMenu.addEventListener('click', () => {
+    navMenu.classList.add('hide');
+    navMenu.classList.remove('show');
 });
 
 // Función para eliminar un producto del carrito
