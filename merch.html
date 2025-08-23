@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="img/icon_zelda.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="scss/styles.css">
+    <script src="js/functions.js" defer></script>
+    <title>Tienda Zelda</title>
+</head>
+<body>
+    <header class="header">
+        <i><img src="img/menu.png" alt="Icono Menu" class="header__icon menu"></i>
+        <img src="img/Zelda_Logo.png" alt="Logo TLOZ" class="header__logo">
+        <section class="header__cart">
+            <i><img src="img/shopping-cart.png" alt="Icono Carrito" class="header__icon cart"></i>
+            <p class="header__cart-count">0</p>
+        </section>
+    </header>
+
+    <main class="main">
+        <section class="main__banner">
+            <div class="main__banner-content">
+                <h2>Merch Oficial</h2>
+                <p>Revisa la mercancía oficial de la saga The Legend of Zelda</p>
+            </div>
+        </section>
+
+        <section class="main__products">
+            <article>
+                <img src="img/merch1.jpg" alt="Heart Lamp" class="product-image">
+                <h3 class="product-name">The Legend of Zelda Heart Container Light - Lámpara oficial de Nintendo</h3>
+                <p class="product-price">$694.47</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </article>
+            <article>
+                <img src="img/merch2.jpg" alt="Pyramid International Legend of Zelda" class="product-image">
+                <h3 class="product-name">The Legend of Zelda: Taza y posavasos en lata de regalo reutilizable</h3>
+                <p class="product-price">$977.62</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </article>
+            <article>
+                <img src="img/merch3.jpg" alt="Gorra Zelda" class="product-image">
+                <h3 class="product-name">Nintendo Legend of Zelda Hylian Shield - Gorro de metal para hombre, color negro</h3>
+                <p class="product-price">$608.45</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </article>
+            <article>
+                <img src="img/merch4.jpg" alt="Trifuerza Zelda" class="product-image">
+                <h3 class="product-name">Paladone Legend of Zelda Triforce Hero Night Light Projects The Hyrule Crest</h3>
+                <p class="product-price">$565.44</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </article>
+            <article>
+                <img src="img/merch5.jpg" alt="Cofre bokoblin Zelda" class="product-image">
+                <h3 class="product-name">Paladone - Luz de cofre bokoblin con licencia oficial de The Legend of Zelda</h3>
+                <p class="product-price">$877.70</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </article>
+        </section>
+
+        <section class="main__cart">
+            <div class="main__cart-top">
+                <h2>CARRITO</h2>
+                <img src="img/cerrar.png" alt="boton cerrar" class="close-cart">
+            </div>
+            <p class="main__cart-empty">¡El carrito está vacío añade más productos!</p>
+            
+        </section>
+        <section class="main__nav">
+            <div class="main__nav-close">
+                <img src="img/cerrar.png" alt="Cerrar Menu" class="nav-close">
+                <h2 class="main__nav-title">Menú</h2>
+            </div>
+            
+            <nav class="main__nav-links">
+                <a href="index.html" class="main__nav-link">Inicio</a>
+                <div class=" main__nav-dropdown">
+                    <p class="main__nav-link">Productos</p>
+                    <div class="dropdown-menu">
+                        <a href="games.html" class="dropdown-item">Juegos</a>
+                        <a href="figures.html" class="dropdown-item">Amiibos</a>
+                        <a href="merch.html" class="dropdown-item">Accesorios</a>
+                    </div>
+                </div>
+                <a href="contacto.html" class="main__nav-link">Contacto</a>
+                <a href="sobre_nosotros.html" class="main__nav-link">Sobre Nosotros</a>
+            </nav>
+        </section>
+    </main>
+    
+</body>
+</html>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="img/icon_zelda.ico">
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="scss/styles.css">
     <script src="js/functions.js" defer></script>
@@ -22,8 +23,10 @@
 
     <main class="main">
         <section class="main__banner">
-            <h2>Productos Nuevos</h2>
-            <p>Conoce los productos más recientes</p>
+            <div class="main__banner-content">
+                <h2>Productos Nuevos</h2>
+                <p>Conoce los productos más recientes</p>
+            </div>
         </section>
 
         <section class="main__products">
@@ -46,39 +49,39 @@
                 <button class="add-to-cart">Añadir al carrito</button>
             </article>
             <article>
-                <img src="img/echoes.jpg" alt="Echoes of Wisdom" class="product-image">
-                <h3 class="product-name">The Legend of Zelda Echos of Wisdom</h3>
+                <img src="img/botw.jpg" alt="Breath of the Wild" class="product-image">
+                <h3 class="product-name">The Legend of Zelda: Breath of the Wild</h3>
                 <p class="product-price">$1,199.00</p>
                 <button class="add-to-cart">Añadir al carrito</button>
             </article>
             <article>
-                <img src="img/tears.jpg" alt="Tears of the kingdom" class="product-image">
-                <h3 class="product-name">The Legend of Tears of the Kingdom</h3>
+                <img src="img/calamity.jpg" alt="Age of calamity" class="product-image">
+                <h3 class="product-name">The Legend of Zelda: Age of Calamity</h3>
                 <p class="product-price">$1,399.00</p>
                 <button class="add-to-cart">Añadir al carrito</button>
             </article>
             <article>
-                <img src="img/awakening.jpg" alt="Links awakening" class="product-image">
-                <h3 class="product-name">The Legends of Zelda Link's Awakening</h3>
+                <img src="img/skyward.jpg" alt="Skyward Sword" class="product-image">
+                <h3 class="product-name">The Legend of Zelda: Skyward Sword</h3>
                 <p class="product-price">$1,199.00</p>
                 <button class="add-to-cart">Añadir al carrito</button>
             </article>
             <article>
-                <img src="img/echoes.jpg" alt="Echoes of Wisdom" class="product-image">
-                <h3 class="product-name">The Legend of Zelda Echos of Wisdom</h3>
+                <img src="img/warriors.jpg" alt="Hyrule Warriors" class="product-image">
+                <h3 class="product-name">The Legend of Zelda: Hyrule Warriors</h3>
                 <p class="product-price">$1,199.00</p>
                 <button class="add-to-cart">Añadir al carrito</button>
             </article>
             <article>
-                <img src="img/tears.jpg" alt="Tears of the kingdom" class="product-image">
-                <h3 class="product-name">The Legend of Tears of the Kingdom</h3>
+                <img src="img/cadence.jpg" alt="Cadence of Hyrule" class="product-image">
+                <h3 class="product-name">The Legend of Zelda: Cadence of Hyrule</h3>
                 <p class="product-price">$1,399.00</p>
                 <button class="add-to-cart">Añadir al carrito</button>
             </article>
             <article>
-                <img src="img/awakening.jpg" alt="Links awakening" class="product-image">
-                <h3 class="product-name">The Legends of Zelda Link's Awakening</h3>
-                <p class="product-price">$1,199.00</p>
+                <img src="img/link_amiibo.jpg" alt="Links awakening" class="product-image">
+                <h3 class="product-name">Link (Archer) Amiibo - The Legend of Zelda: Breath of The Wild </h3>
+                <p class="product-price">$549.00</p>
                 <button class="add-to-cart">Añadir al carrito</button>
             </article>
         </section>
@@ -88,17 +91,35 @@
                 <h2>CARRITO</h2>
                 <img src="img/cerrar.png" alt="boton cerrar" class="close-cart">
             </div>
-            <p class="main__cart-empty">¡El carrito está vacío añade más productos!</p>
-            
+            <div class="main__cart-items-slider">
+                <p class="main__cart-empty">¡El carrito está vacío añade más productos!</p>
+            </div>
+            <div class="main__cart-bottom">
+                <div class="main__cart-total">
+                    <span>Total:</span>
+                    <span class="main__cart-total-amount">$0.00</span>
+                </div>
+                <button class="main__cart-buy" disabled>Comprar</button>
+            </div>
         </section>
         <section class="main__nav">
-            <img src="img/cerrar.png" alt="Cerrar Menu" class="main__nav-close">
-            <h2 class="main__nav-title">Menú</h2>
+            <div class="main__nav-close">
+                <img src="img/cerrar.png" alt="Cerrar Menu" class="nav-close">
+                <h2 class="main__nav-title">Menú</h2>
+            </div>
+            
             <nav class="main__nav-links">
-                <a href="#" class="main__nav-link">Inicio</a>
-                <a href="#" class="main__nav-link">Productos</a>
-                <a href="#" class="main__nav-link">Contacto</a>
-                <a href="#" class="main__nav-link">Sobre Nosotros</a>
+                <a href="index.html" class="main__nav-link">Inicio</a>
+                <div class=" main__nav-dropdown">
+                    <p class="main__nav-link">Productos</p>
+                    <div class="dropdown-menu">
+                        <a href="games.html" class="dropdown-item">Juegos</a>
+                        <a href="figures.html" class="dropdown-item">Amiibos</a>
+                        <a href="merch.html" class="dropdown-item">Accesorios</a>
+                    </div>
+                </div>
+                <a href="contacto.html" class="main__nav-link">Contacto</a>
+                <a href="aboutus.html" class="main__nav-link">Sobre Nosotros</a>
             </nav>
         </section>
     </main>

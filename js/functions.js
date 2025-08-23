@@ -1,6 +1,7 @@
 const cartIcon = document.querySelector('.cart');
 const cart = document.querySelector('.main__cart');
 const closeCart = document.querySelector('.close-cart');
+const cartItemsContainer = document.querySelector('.main__cart-items-slider');
 
 
 closeCart.addEventListener('click', () => {
@@ -54,9 +55,11 @@ addToCartButtons.forEach((button) => {
             <p>${productPrice}</p>
             <i class="erase"><img src="img/recycle.png" alt="Icono Quitar"></i>
         `;
-        cart.appendChild(cartItem);
+        cartItemsContainer.appendChild(cartItem);
         updateCartCount();
         updateCartEmptyMessage();
+        saveCartToSession();
+        updateCartTotalAndButton();
 
         // Añadir el evento para eliminar el producto del carrito
         const icon = cartItem.querySelector('.erase');
@@ -64,6 +67,8 @@ addToCartButtons.forEach((button) => {
             cartItem.remove();
             updateCartCount();
             updateCartEmptyMessage();
+            saveCartToSession();
+            updateCartTotalAndButton();
         });
         
 
@@ -82,6 +87,7 @@ const updateCartCount = () => {
 document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
     updateCartEmptyMessage();
+    loadCartFromSession();
 });
 // Función para mostrar un mensaje si el carrito está vacío
 const updateCartEmptyMessage = () => {
@@ -100,3 +106,67 @@ const updateCartEmptyMessage = () => {
         }
     }
 };
+//Función para guardar los productos del carrito en la sesión
+function saveCartToSession() {
+    const cartItems = Array.from(document.querySelectorAll('.main__cart-item')).map(item => ({
+        image: item.querySelector('img').getAttribute('src'),
+        name: item.querySelector('p:nth-of-type(1)').textContent,
+        price: item.querySelector('p:nth-of-type(2)').textContent
+    }));
+    sessionStorage.setItem('cart', JSON.stringify(cartItems));
+}
+
+function loadCartFromSession() {
+    const cartData = sessionStorage.getItem('cart');
+    if (cartData) {
+        const cartItems = JSON.parse(cartData);
+        cartItems.forEach(product => {
+            const cartItem = document.createElement('div');
+            cartItem.classList.add('main__cart-item');
+            cartItem.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <p>${product.name}</p>
+                <p>${product.price}</p>
+                <i class="erase"><img src="img/recycle.png" alt="Icono Quitar"></i>
+            `;
+            cartItemsContainer.appendChild(cartItem);
+
+            // Evento para eliminar el producto del carrito
+            const icon = cartItem.querySelector('.erase');
+            icon.addEventListener('click', () => {
+                cartItem.remove();
+                updateCartCount();
+                updateCartEmptyMessage();
+                saveCartToSession();
+            });
+        });
+        updateCartCount();
+        updateCartEmptyMessage();
+    }
+}
+// Función para desplegar submenú de productos
+document.addEventListener('DOMContentLoaded', () => {
+    const dropdown = document.querySelector('.main__nav-dropdown');
+    if (dropdown) {
+        dropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('open');
+        });
+        // Cierra el menú si haces click fuera
+        document.addEventListener('click', () => {
+            dropdown.classList.remove('open');
+        });
+    }
+});
+function updateCartTotalAndButton() {
+    const cartItems = document.querySelectorAll('.main__cart-item');
+    let total = 0;
+    cartItems.forEach(item => {
+        const priceText = item.querySelector('p:nth-of-type(2)').textContent;
+        const price = parseFloat(priceText.replace(/[^0-9.]/g, '').replace(',', ''));
+        total += price;
+    });
+    document.querySelector('.main__cart-total-amount').textContent = `$${total.toLocaleString('es-MX', {minimumFractionDigits: 2})}`;
+    const buyButton = document.querySelector('.main__cart-buy');
+    buyButton.disabled = cartItems.length === 0;
+}
