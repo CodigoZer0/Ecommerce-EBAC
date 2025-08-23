@@ -539,6 +539,23 @@ body{
 
 
 /* Responsive Desing */
+@media (max-width: 1024px) {
+    .main{
+        &__banner{
+            padding: 40px 20px;
+            h2{
+                font-size: 24px;
+            }
+            p{
+                font-size: 18px;
+            }
+            &-content{
+                width: 60% !important;
+
+            }
+        }
+    }
+}
 @media (max-width: 820px){
 
     .header{
@@ -551,6 +568,19 @@ body{
         }
     }
     .main{
+        &__banner{
+            padding: 40px 20px;
+            h2{
+                font-size: 24px;
+            }
+            p{
+                font-size: 18px;
+            }
+            &-content{
+                width: 60% !important;
+
+            }
+        }
         &__products{
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 
@@ -583,6 +613,10 @@ body{
             }
             p{
                 font-size: 16px;
+            }
+            &-content{
+                width: 80% !important;
+
             }
         }
         &__products{

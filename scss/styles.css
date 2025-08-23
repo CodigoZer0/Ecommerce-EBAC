@@ -492,6 +492,20 @@ body .main__aboutus-content p strong {
 }
 
 /* Responsive Desing */
+@media (max-width: 1024px) {
+  .main__banner {
+    padding: 40px 20px;
+  }
+  .main__banner h2 {
+    font-size: 24px;
+  }
+  .main__banner p {
+    font-size: 18px;
+  }
+  .main__banner-content {
+    width: 60% !important;
+  }
+}
 @media (max-width: 820px) {
   .header {
     padding: 15px;
@@ -501,6 +515,18 @@ body .main__aboutus-content p strong {
   }
   .header__icon {
     width: 30px;
+  }
+  .main__banner {
+    padding: 40px 20px;
+  }
+  .main__banner h2 {
+    font-size: 24px;
+  }
+  .main__banner p {
+    font-size: 18px;
+  }
+  .main__banner-content {
+    width: 60% !important;
   }
   .main__products {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -536,6 +562,9 @@ body .main__aboutus-content p strong {
   }
   .main__banner p {
     font-size: 16px;
+  }
+  .main__banner-content {
+    width: 80% !important;
   }
   .main__products {
     grid-template-columns: 1fr;
