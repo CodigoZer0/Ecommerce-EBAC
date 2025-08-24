@@ -243,12 +243,6 @@ body .main__cart .main__cart-top h2 {
   padding: 20px 0;
   box-sizing: border-box;
 }
-body .main__cart-empty {
-  padding: 20px;
-  text-align: center;
-  font-size: 16px;
-  color: #999;
-}
 body .main__cart-item {
   display: flex;
   align-items: center;
@@ -267,6 +261,12 @@ body .main__cart-item p {
   font-size: 14px;
   text-align: left;
   font-weight: 500;
+}
+body .main__cart-empty {
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+  color: #999;
 }
 body .main__cart img {
   width: 50px;
