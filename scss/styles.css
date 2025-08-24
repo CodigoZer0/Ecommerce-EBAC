@@ -259,7 +259,7 @@ body .main__cart-item p {
   flex: 1 1 120px;
   margin: 0 8px 0 0;
   font-size: 14px;
-  text-align: left;
+  text-align: center;
   font-weight: 500;
 }
 body .main__cart-empty {
