@@ -40,38 +40,56 @@ const addToCartButtons = document.querySelectorAll('.add-to-cart');
 console.log(addToCartButtons);
 addToCartButtons.forEach((button) => {
     button.addEventListener('click', (event) => {
-        const productElement = event.target.parentElement
+        const productElement = event.target.parentElement;
         const productImage = productElement.querySelector('.product-image');
         const productImageSrc = productImage.getAttribute('src');
         const productName = productElement.querySelector('.product-name').textContent;
         const productPrice = productElement.querySelector('.product-price').textContent;
 
-        // Aquí puedes añadir la lógica para agregar el producto al carrito
-        const cartItem = document.createElement('div');
-        cartItem.classList.add('main__cart-item');
-        cartItem.innerHTML = `
-            <img src="${productImageSrc}" alt="${productName}">
-            <p>${productName}</p>
-            <p>${productPrice}</p>
-            <i class="erase"><img src="img/recycle.png" alt="Icono Quitar"></i>
-        `;
-        cartItemsContainer.appendChild(cartItem);
+        // Busca si ya existe el producto en el carrito
+        const existingCartItem = Array.from(cartItemsContainer.querySelectorAll('.main__cart-item'))
+            .find(item => item.querySelector('p').textContent === productName);
+
+        if (existingCartItem) {
+            // Si existe, aumenta la cantidad y actualiza el subtotal
+            const quantityElem = existingCartItem.querySelector('.cart-item-quantity');
+            let quantity = parseInt(quantityElem.textContent, 10);
+            quantity++;
+            quantityElem.textContent = quantity;
+
+            // Actualiza el subtotal
+            const priceValue = parseFloat(productPrice.replace(/[^0-9.]/g, '').replace(',', ''));
+            existingCartItem.querySelector('.cart-item-subtotal').textContent =
+                `$${(priceValue * quantity).toLocaleString('es-MX', {minimumFractionDigits: 2})}`;
+        } else {
+            // Si no existe, lo agrega con cantidad 1
+            const cartItem = document.createElement('div');
+            cartItem.classList.add('main__cart-item');
+            cartItem.innerHTML = `
+                <img src="${productImageSrc}" alt="${productName}">
+                <p>${productName}</p>
+                <span class="cart-item-quantity">1</span> x 
+                <span class="cart-item-price">${productPrice}</span>
+                <span class="cart-item-subtotal">${productPrice}</span>
+                <i class="erase"><img src="img/recycle.png" alt="Icono Quitar"></i>
+            `;
+            cartItemsContainer.appendChild(cartItem);
+
+            // Evento para eliminar el producto del carrito
+            const icon = cartItem.querySelector('.erase');
+            icon.addEventListener('click', () => {
+                cartItem.remove();
+                updateCartCount();
+                updateCartEmptyMessage();
+                saveCartToSession();
+                updateCartTotalAndButton();
+            });
+        }
+
         updateCartCount();
         updateCartEmptyMessage();
         saveCartToSession();
         updateCartTotalAndButton();
-
-        // Añadir el evento para eliminar el producto del carrito
-        const icon = cartItem.querySelector('.erase');
-        icon.addEventListener('click', () => {
-            cartItem.remove();
-            updateCartCount();
-            updateCartEmptyMessage();
-            saveCartToSession();
-            updateCartTotalAndButton();
-        });
-        
-
     });
 });
 
@@ -85,9 +103,10 @@ const updateCartCount = () => {
 
 // Inicializar el contador del carrito al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
+    loadCartFromSession();
     updateCartCount();
     updateCartEmptyMessage();
-    loadCartFromSession();
+    updateCartTotalAndButton();
 });
 // Función para mostrar un mensaje si el carrito está vacío
 const updateCartEmptyMessage = () => {
@@ -110,8 +129,10 @@ const updateCartEmptyMessage = () => {
 function saveCartToSession() {
     const cartItems = Array.from(document.querySelectorAll('.main__cart-item')).map(item => ({
         image: item.querySelector('img').getAttribute('src'),
-        name: item.querySelector('p:nth-of-type(1)').textContent,
-        price: item.querySelector('p:nth-of-type(2)').textContent
+        name: item.querySelector('p').textContent,
+        price: item.querySelector('.cart-item-price').textContent,
+        quantity: item.querySelector('.cart-item-quantity').textContent,
+        subtotal: item.querySelector('.cart-item-subtotal').textContent
     }));
     sessionStorage.setItem('cart', JSON.stringify(cartItems));
 }
@@ -126,7 +147,9 @@ function loadCartFromSession() {
             cartItem.innerHTML = `
                 <img src="${product.image}" alt="${product.name}">
                 <p>${product.name}</p>
-                <p>${product.price}</p>
+                <span class="cart-item-quantity">${product.quantity}</span> x 
+                <span class="cart-item-price">${product.price}</span>
+                <span class="cart-item-subtotal">${product.subtotal}</span>
                 <i class="erase"><img src="img/recycle.png" alt="Icono Quitar"></i>
             `;
             cartItemsContainer.appendChild(cartItem);
@@ -138,10 +161,12 @@ function loadCartFromSession() {
                 updateCartCount();
                 updateCartEmptyMessage();
                 saveCartToSession();
+                updateCartTotalAndButton();
             });
         });
         updateCartCount();
         updateCartEmptyMessage();
+        updateCartTotalAndButton();
     }
 }
 // Función para desplegar submenú de productos
@@ -162,9 +187,9 @@ function updateCartTotalAndButton() {
     const cartItems = document.querySelectorAll('.main__cart-item');
     let total = 0;
     cartItems.forEach(item => {
-        const priceText = item.querySelector('p:nth-of-type(2)').textContent;
-        const price = parseFloat(priceText.replace(/[^0-9.]/g, '').replace(',', ''));
-        total += price;
+        const subtotalText = item.querySelector('.cart-item-subtotal').textContent;
+        const subtotal = parseFloat(subtotalText.replace(/[^0-9.]/g, '').replace(',', ''));
+        total += subtotal;
     });
     document.querySelector('.main__cart-total-amount').textContent = `$${total.toLocaleString('es-MX', {minimumFractionDigits: 2})}`;
     const buyButton = document.querySelector('.main__cart-buy');
