@@ -261,19 +261,19 @@ body .main__cart-item {
   position: relative;
   box-sizing: border-box;
 }
+body .main__cart-item p {
+  flex: 1 1 120px;
+  margin: 0 8px 0 0;
+  font-size: 14px;
+  text-align: left;
+  font-weight: 500;
+}
 body .main__cart img {
   width: 50px;
   height: 50px;
   -o-object-fit: contain;
      object-fit: contain;
   border-radius: 8px;
-}
-body .main__cart p {
-  flex: 1 1 120px;
-  margin: 0 8px 0 0;
-  font-size: 14px;
-  text-align: left;
-  font-weight: 500;
 }
 body .main__cart .cart-item-quantity {
   font-weight: 600;

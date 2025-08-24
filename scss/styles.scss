@@ -286,6 +286,13 @@ body{
                 min-height: 80px;
                 position: relative;
                 box-sizing: border-box;
+                p{
+                flex: 1 1 120px;
+                margin: 0 8px 0 0;
+                font-size: 14px;
+                text-align: left;
+                font-weight: 500;
+                }
             }
             img{
                 width: 50px;
@@ -294,13 +301,7 @@ body{
                 border-radius: 8px;
                 
             }
-            p{
-             flex: 1 1 120px;
-            margin: 0 8px 0 0;
-            font-size: 14px;
-            text-align: left;
-            font-weight: 500;
-            }
+            
             .cart-item-quantity {
                 font-weight: 600;
                 margin: 0 4px;
